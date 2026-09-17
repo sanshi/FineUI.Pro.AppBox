@@ -1,0 +1,36 @@
+<Project>
+  <PropertyGroup>
+    <FineUIReleaseVersion>16.0.0-beta.1</FineUIReleaseVersion>
+    <Version>$(FineUIReleaseVersion)</Version>
+    <AssemblyVersion>16.0.0.0</AssemblyVersion>
+    <FileVersion>16.0.0.0</FileVersion>
+    <InformationalVersion>$(FineUIReleaseVersion)</InformationalVersion>
+    <FineUIPackageVersion Condition="'$(FineUIPackageVersion)' == ''">16.0.0-beta.1</FineUIPackageVersion>
+    <FineUIUseLocalSource Condition="'$(FineUIUseLocalSource)' == ''">false</FineUIUseLocalSource>
+  </PropertyGroup>
+
+  <Import Project="$(MSBuildThisFileDirectory)FineUI.Enterprise.props"
+          Condition="Exists('$(MSBuildThisFileDirectory)FineUI.Enterprise.props')" />
+  <Import Project="$(MSBuildThisFileDirectory)Directory.Build.local.props"
+          Condition="Exists('$(MSBuildThisFileDirectory)Directory.Build.local.props')" />
+
+  <ItemGroup Condition="'$(FineUIUseLocalSource)' == 'true'">
+    <ProjectReference Include="$(FineUILocalProject)">
+      <Project>{0F8BF1F6-DDC2-43DA-BB0B-416CC287AC1B}</Project>
+      <Name>FineUI.Pro</Name>
+    </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(FineUIUseLocalSource)' != 'true'">
+    <Reference Include="FineUI.Pro, Version=16.0.0.0, Culture=neutral, PublicKeyToken=9cbe753c029f291a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)packages\FineUI.Pro.$(FineUIPackageVersion)\lib\net20\FineUI.Pro.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="ValidateFineUILocalSource"
+          BeforeTargets="PrepareForBuild"
+          Condition="'$(FineUIUseLocalSource)' == 'true' and !Exists('$(FineUILocalProject)')">
+    <Error Text="FineUI 本地源码项目不存在：$(FineUILocalProject)" />
+  </Target>
+</Project>

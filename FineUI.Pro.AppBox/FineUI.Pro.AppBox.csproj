@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{632DC2E8-FB12-46CD-A97D-ED3D510E6B54}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FineUI.Pro.AppBox</RootNamespace>
+    <AssemblyName>FineUI.Pro.AppBox</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode>true</IISExpressUseClassicPipelineMode>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PackageAsSingleFile>true</PackageAsSingleFile>
+    <DesktopBuildPackageLocation>obj\Debug\Package\FineUI.Pro.AppBox.zip</DesktopBuildPackageLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.Extended, Version=6.0.0.0, Culture=neutral, PublicKeyToken=05b7e29bdd433584, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFrameworkExtended.6.2.0.4\lib\net45\EntityFramework.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.8.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="admin\dept.aspx.cs">
+      <DependentUpon>dept.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\dept.aspx.designer.cs">
+      <DependentUpon>dept.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\dept_edit.aspx.cs">
+      <DependentUpon>dept_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\dept_edit.aspx.designer.cs">
+      <DependentUpon>dept_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\dept_new.aspx.cs">
+      <DependentUpon>dept_new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\dept_new.aspx.designer.cs">
+      <DependentUpon>dept_new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\dept_user.aspx.cs">
+      <DependentUpon>dept_user.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\dept_user.aspx.designer.cs">
+      <DependentUpon>dept_user.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\dept_user_addnew.aspx.cs">
+      <DependentUpon>dept_user_addnew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\dept_user_addnew.aspx.designer.cs">
+      <DependentUpon>dept_user_addnew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\log.aspx.cs">
+      <DependentUpon>log.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\log.aspx.designer.cs">
+      <DependentUpon>log.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\log_view.aspx.cs">
+      <DependentUpon>log_view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\log_view.aspx.designer.cs">
+      <DependentUpon>log_view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\menu.aspx.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\menu.aspx.designer.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\menu_edit.aspx.cs">
+      <DependentUpon>menu_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\menu_edit.aspx.designer.cs">
+      <DependentUpon>menu_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\menu_new.aspx.cs">
+      <DependentUpon>menu_new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\menu_new.aspx.designer.cs">
+      <DependentUpon>menu_new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\online.aspx.cs">
+      <DependentUpon>online.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\online.aspx.designer.cs">
+      <DependentUpon>online.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\changepassword.aspx.cs">
+      <DependentUpon>changepassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\changepassword.aspx.designer.cs">
+      <DependentUpon>changepassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\config.aspx.cs">
+      <DependentUpon>config.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\config.aspx.designer.cs">
+      <DependentUpon>config.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\role.aspx.cs">
+      <DependentUpon>role.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\role.aspx.designer.cs">
+      <DependentUpon>role.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\role_edit.aspx.cs">
+      <DependentUpon>role_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\role_edit.aspx.designer.cs">
+      <DependentUpon>role_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\role_new.aspx.cs">
+      <DependentUpon>role_new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\role_new.aspx.designer.cs">
+      <DependentUpon>role_new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\role_power.aspx.cs">
+      <DependentUpon>role_power.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\role_power.aspx.designer.cs">
+      <DependentUpon>role_power.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\role_user.aspx.cs">
+      <DependentUpon>role_user.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\role_user.aspx.designer.cs">
+      <DependentUpon>role_user.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\role_user_addnew.aspx.cs">
+      <DependentUpon>role_user_addnew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\role_user_addnew.aspx.designer.cs">
+      <DependentUpon>role_user_addnew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\title.aspx.cs">
+      <DependentUpon>title.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\title.aspx.designer.cs">
+      <DependentUpon>title.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\title_edit.aspx.cs">
+      <DependentUpon>title_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\title_edit.aspx.designer.cs">
+      <DependentUpon>title_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\title_new.aspx.cs">
+      <DependentUpon>title_new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\title_new.aspx.designer.cs">
+      <DependentUpon>title_new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\title_user.aspx.cs">
+      <DependentUpon>title_user.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\title_user.aspx.designer.cs">
+      <DependentUpon>title_user.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\title_user_addnew.aspx.cs">
+      <DependentUpon>title_user_addnew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\title_user_addnew.aspx.designer.cs">
+      <DependentUpon>title_user_addnew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\user.aspx.cs">
+      <DependentUpon>user.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\user.aspx.designer.cs">
+      <DependentUpon>user.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\user_changepassword.aspx.cs">
+      <DependentUpon>user_changepassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\user_changepassword.aspx.designer.cs">
+      <DependentUpon>user_changepassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\user_edit.aspx.cs">
+      <DependentUpon>user_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\user_edit.aspx.designer.cs">
+      <DependentUpon>user_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\user_new.aspx.cs">
+      <DependentUpon>user_new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\user_new.aspx.designer.cs">
+      <DependentUpon>user_new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\user_view.aspx.cs">
+      <DependentUpon>user_view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\user_view.aspx.designer.cs">
+      <DependentUpon>user_view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\power.aspx.cs">
+      <DependentUpon>power.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\power.aspx.designer.cs">
+      <DependentUpon>power.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\power_edit.aspx.cs">
+      <DependentUpon>power_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\power_edit.aspx.designer.cs">
+      <DependentUpon>power_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\power_new.aspx.cs">
+      <DependentUpon>power_new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\power_new.aspx.designer.cs">
+      <DependentUpon>power_new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Business\Extensions\QueryableExtensions.cs" />
+    <Compile Include="Business\Helper\ConfigHelper.cs" />
+    <Compile Include="Business\Models\AppBoxContext.cs" />
+    <Compile Include="Business\Models\AppBoxDatabaseInitializer.cs" />
+    <Compile Include="Business\Models\Config.cs" />
+    <Compile Include="Business\Models\Dept.cs" />
+    <Compile Include="Business\Models\User.cs" />
+    <Compile Include="Business\Models\Role.cs" />
+    <Compile Include="Business\Models\Title.cs" />
+    <Compile Include="Business\Models\Online.cs" />
+    <Compile Include="Business\Models\Log.cs" />
+    <Compile Include="Business\Models\Power.cs" />
+    <Compile Include="Business\Models\Menu.cs" />
+    <Compile Include="Business\Models\Notice.cs" />
+    <Compile Include="Business\Models\NoticeData.cs" />
+    <Compile Include="Business\Interface\IKeyID.cs" />
+    <Compile Include="Business\PageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\GridSelectionUtil.cs" />
+    <Compile Include="Business\Util\EncryptionUtil.cs" />
+    <Compile Include="Business\Util\PasswordUtil.cs" />
+    <Compile Include="Business\Util\QueryExtensions.cs" />
+    <Compile Include="Business\Util\ScriptUtil.cs" />
+    <Compile Include="Business\Util\StringUtil.cs" />
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="main.aspx.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="main.aspx.designer.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="test\test2.aspx.cs">
+      <DependentUpon>test2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\test2.aspx.designer.cs">
+      <DependentUpon>test2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\test1.aspx.cs">
+      <DependentUpon>test1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\test1.aspx.designer.cs">
+      <DependentUpon>test1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="public\notice.aspx.cs">
+      <DependentUpon>notice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="public\notice.aspx.designer.cs">
+      <DependentUpon>notice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="public\notice_detail.aspx.cs">
+      <DependentUpon>notice_detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="public\notice_detail.aspx.designer.cs">
+      <DependentUpon>notice_detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="themes.aspx.cs">
+      <DependentUpon>themes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="themes.aspx.designer.cs">
+      <DependentUpon>themes.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\dept.aspx" />
+    <Content Include="admin\dept_edit.aspx" />
+    <Content Include="admin\dept_new.aspx" />
+    <Content Include="admin\dept_user.aspx" />
+    <Content Include="admin\dept_user_addnew.aspx" />
+    <Content Include="admin\log.aspx" />
+    <Content Include="admin\log_view.aspx" />
+    <Content Include="admin\menu.aspx" />
+    <Content Include="admin\menu_edit.aspx" />
+    <Content Include="admin\menu_new.aspx" />
+    <Content Include="admin\online.aspx" />
+    <Content Include="admin\changepassword.aspx" />
+    <Content Include="admin\role.aspx" />
+    <Content Include="admin\role_edit.aspx" />
+    <Content Include="admin\role_new.aspx" />
+    <Content Include="admin\role_power.aspx" />
+    <Content Include="admin\role_user.aspx" />
+    <Content Include="admin\role_user_addnew.aspx" />
+    <Content Include="admin\test.aspx" />
+    <Content Include="admin\title.aspx" />
+    <Content Include="admin\title_edit.aspx" />
+    <Content Include="admin\title_new.aspx" />
+    <Content Include="admin\title_user.aspx" />
+    <Content Include="admin\title_user_addnew.aspx" />
+    <Content Include="admin\user.aspx" />
+    <Content Include="admin\user_changepassword.aspx" />
+    <Content Include="admin\user_edit.aspx" />
+    <Content Include="admin\user_new.aspx" />
+    <Content Include="admin\user_view.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\config.aspx" />
+    <Content Include="admin\default.aspx" />
+    <Content Include="admin\help\help.htm" />
+    <Content Include="admin\help\jisuanqi.htm" />
+    <Content Include="admin\help\wannianli.htm" />
+    <Content Include="admin\power.aspx" />
+    <Content Include="admin\power_edit.aspx" />
+    <Content Include="admin\power_new.aspx" />
+    <Content Include="default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="main.aspx" />
+    <Content Include="readme.txt" />
+    <Content Include="res\css\index.css" />
+    <Content Include="res\css\mobileview.css" />
+    <Content Include="res\images\login\login_1.png" />
+    <Content Include="res\images\login\login_2.png" />
+    <Content Include="res\images\login\login_3.png" />
+    <Content Include="res\images\login\login_4.png" />
+    <Content Include="res\images\login\login_6.png" />
+    <Content Include="res\images\my_face_80.jpg" />
+    <Content Include="res\images\themes\black_tie.png" />
+    <Content Include="res\images\themes\blitzer.png" />
+    <Content Include="res\images\themes\bootstrap_pure.png" />
+    <Content Include="res\images\themes\cupertino.png" />
+    <Content Include="res\images\themes\customtheme.png" />
+    <Content Include="res\images\themes\custom_default.png" />
+    <Content Include="res\images\themes\dark_hive.png" />
+    <Content Include="res\images\themes\default.png" />
+    <Content Include="res\images\themes\dot_luv.png" />
+    <Content Include="res\images\themes\eggplant.png" />
+    <Content Include="res\images\themes\excite_bike.png" />
+    <Content Include="res\images\themes\flick.png" />
+    <Content Include="res\images\themes\hot_sneaks.png" />
+    <Content Include="res\images\themes\humanity.png" />
+    <Content Include="res\images\themes\image_black_sky.png" />
+    <Content Include="res\images\themes\image_blue_drip.png" />
+    <Content Include="res\images\themes\image_blue_moon.png" />
+    <Content Include="res\images\themes\image_blue_sky.png" />
+    <Content Include="res\images\themes\image_blue_star.png" />
+    <Content Include="res\images\themes\image_green_drip.png" />
+    <Content Include="res\images\themes\image_green_lotus.png" />
+    <Content Include="res\images\themes\image_green_poppy.png" />
+    <Content Include="res\images\themes\image_green_rain.png" />
+    <Content Include="res\images\themes\image_orange_light.png" />
+    <Content Include="res\images\themes\image_purple_fog.png" />
+    <Content Include="res\images\themes\image_red_dawn.png" />
+    <Content Include="res\images\themes\le_frog.png" />
+    <Content Include="res\images\themes\metro_blue.png" />
+    <Content Include="res\images\themes\metro_dark_blue.png" />
+    <Content Include="res\images\themes\metro_gray.png" />
+    <Content Include="res\images\themes\metro_green.png" />
+    <Content Include="res\images\themes\metro_orange.png" />
+    <Content Include="res\images\themes\mint_choc.png" />
+    <Content Include="res\images\themes\overcast.png" />
+    <Content Include="res\images\themes\pepper_grinder.png" />
+    <Content Include="res\images\themes\pure_black.png" />
+    <Content Include="res\images\themes\pure_blue.png" />
+    <Content Include="res\images\themes\pure_green.png" />
+    <Content Include="res\images\themes\pure_orange.png" />
+    <Content Include="res\images\themes\pure_purple.png" />
+    <Content Include="res\images\themes\pure_red.png" />
+    <Content Include="res\images\themes\redmond.png" />
+    <Content Include="res\images\themes\small\black_tie.png" />
+    <Content Include="res\images\themes\small\blitzer.png" />
+    <Content Include="res\images\themes\small\bootstrap_pure.png" />
+    <Content Include="res\images\themes\small\cupertino.png" />
+    <Content Include="res\images\themes\small\customtheme.png" />
+    <Content Include="res\images\themes\small\custom_default.png" />
+    <Content Include="res\images\themes\small\dark_hive.png" />
+    <Content Include="res\images\themes\small\default.png" />
+    <Content Include="res\images\themes\small\dot_luv.png" />
+    <Content Include="res\images\themes\small\eggplant.png" />
+    <Content Include="res\images\themes\small\excite_bike.png" />
+    <Content Include="res\images\themes\small\flick.png" />
+    <Content Include="res\images\themes\small\hot_sneaks.png" />
+    <Content Include="res\images\themes\small\humanity.png" />
+    <Content Include="res\images\themes\small\image_black_sky.png" />
+    <Content Include="res\images\themes\small\image_blue_drip.png" />
+    <Content Include="res\images\themes\small\image_blue_moon.png" />
+    <Content Include="res\images\themes\small\image_blue_sky.png" />
+    <Content Include="res\images\themes\small\image_blue_star.png" />
+    <Content Include="res\images\themes\small\image_green_drip.png" />
+    <Content Include="res\images\themes\small\image_green_lotus.png" />
+    <Content Include="res\images\themes\small\image_green_poppy.png" />
+    <Content Include="res\images\themes\small\image_green_rain.png" />
+    <Content Include="res\images\themes\small\image_orange_light.png" />
+    <Content Include="res\images\themes\small\image_purple_fog.png" />
+    <Content Include="res\images\themes\small\image_red_dawn.png" />
+    <Content Include="res\images\themes\small\le_frog.png" />
+    <Content Include="res\images\themes\small\metro_blue.png" />
+    <Content Include="res\images\themes\small\metro_dark_blue.png" />
+    <Content Include="res\images\themes\small\metro_gray.png" />
+    <Content Include="res\images\themes\small\metro_green.png" />
+    <Content Include="res\images\themes\small\metro_orange.png" />
+    <Content Include="res\images\themes\small\mint_choc.png" />
+    <Content Include="res\images\themes\small\overcast.png" />
+    <Content Include="res\images\themes\small\pepper_grinder.png" />
+    <Content Include="res\images\themes\small\pure_black.png" />
+    <Content Include="res\images\themes\small\pure_blue.png" />
+    <Content Include="res\images\themes\small\pure_green.png" />
+    <Content Include="res\images\themes\small\pure_orange.png" />
+    <Content Include="res\images\themes\small\pure_purple.png" />
+    <Content Include="res\images\themes\small\pure_red.png" />
+    <Content Include="res\images\themes\small\redmond.png" />
+    <Content Include="res\images\themes\small\smoothness.png" />
+    <Content Include="res\images\themes\small\south_street.png" />
+    <Content Include="res\images\themes\small\start.png" />
+    <Content Include="res\images\themes\small\sunny.png" />
+    <Content Include="res\images\themes\small\swanky_purse.png" />
+    <Content Include="res\images\themes\small\trontastic.png" />
+    <Content Include="res\images\themes\small\ui_darkness.png" />
+    <Content Include="res\images\themes\small\ui_lightness.png" />
+    <Content Include="res\images\themes\small\vader.png" />
+    <Content Include="res\images\themes\smoothness.png" />
+    <Content Include="res\images\themes\south_street.png" />
+    <Content Include="res\images\themes\start.png" />
+    <Content Include="res\images\themes\sunny.png" />
+    <Content Include="res\images\themes\swanky_purse.png" />
+    <Content Include="res\images\themes\trontastic.png" />
+    <Content Include="res\images\themes\ui_darkness.png" />
+    <Content Include="res\images\themes\ui_lightness.png" />
+    <Content Include="res\images\themes\vader.png" />
+    <Content Include="res\js\common.js" />
+    <Content Include="res\js\index.js" />
+    <Content Include="res\js\mobileview.js" />
+    <Content Include="res\themes\bootstrap_pure\theme.css" />
+    <Content Include="res\themes\custom_default\theme.css" />
+    <Content Include="res\themes\custom_light_green\theme.css" />
+    <Content Include="res\themes\custom_light_green\theme.js" />
+    <Content Include="res\themes\image_black_sky\sky.jpg" />
+    <Content Include="res\themes\image_black_sky\theme.css" />
+    <Content Include="res\themes\image_blue_drip\drip.jpg" />
+    <Content Include="res\themes\image_blue_drip\theme.css" />
+    <Content Include="res\themes\image_blue_moon\moon.jpg" />
+    <Content Include="res\themes\image_blue_moon\theme.css" />
+    <Content Include="res\themes\image_blue_sky\sky.jpg" />
+    <Content Include="res\themes\image_blue_sky\theme.css" />
+    <Content Include="res\themes\image_blue_star\star.jpg" />
+    <Content Include="res\themes\image_blue_star\theme.css" />
+    <Content Include="res\themes\image_green_drip\drip.jpg" />
+    <Content Include="res\themes\image_green_drip\theme.css" />
+    <Content Include="res\themes\image_green_lotus\lotus.jpg" />
+    <Content Include="res\themes\image_green_lotus\theme.css" />
+    <Content Include="res\themes\image_green_poppy\poppy.jpg" />
+    <Content Include="res\themes\image_green_poppy\theme.css" />
+    <Content Include="res\themes\image_green_rain\rain.jpg" />
+    <Content Include="res\themes\image_green_rain\theme.css" />
+    <Content Include="res\themes\image_orange_light\light.jpg" />
+    <Content Include="res\themes\image_orange_light\theme.css" />
+    <Content Include="res\themes\image_purple_fog\fog.jpg" />
+    <Content Include="res\themes\image_purple_fog\theme.css" />
+    <Content Include="res\themes\image_red_dawn\dawn.jpg" />
+    <Content Include="res\themes\image_red_dawn\theme.css" />
+    <Content Include="test\test2.aspx" />
+    <Content Include="test\test1.aspx" />
+    <Content Include="public\notice.aspx" />
+    <Content Include="public\notice_detail.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="themes.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>7086</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
