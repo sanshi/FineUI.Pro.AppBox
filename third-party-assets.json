@@ -1,7 +1,6 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "auditStatus": "complete",
-  "productVersion": "16.0.0-beta.2",
   "targetPath": "FineUI.Pro.AppBox/res",
   "resourceTreeSha256": "8781616afa923725b1f9ae00e0f5b09e413478f74a115d2bea1865c35d21a9c7",
   "thirdPartyAssets": [
