@@ -453,7 +453,6 @@
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="main.aspx" />
-    <Content Include="readme.txt" />
     <Content Include="res\css\index.css" />
     <Content Include="res\css\mobileview.css" />
     <Content Include="res\images\login\login_1.png" />
