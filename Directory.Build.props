@@ -14,6 +14,10 @@
   <Import Project="$(MSBuildThisFileDirectory)Directory.Build.local.props"
           Condition="Exists('$(MSBuildThisFileDirectory)Directory.Build.local.props')" />
 
+  <PropertyGroup>
+    <FineUIProPackageDll Condition="'$(FineUIProPackageDll)' == ''">$(MSBuildThisFileDirectory)packages\FineUI.Pro.$(FineUIPackageVersion)\lib\net20\FineUI.Pro.dll</FineUIProPackageDll>
+  </PropertyGroup>
+
   <ItemGroup Condition="'$(FineUIUseLocalSource)' == 'true'">
     <ProjectReference Include="$(FineUILocalProject)">
       <Project>{0F8BF1F6-DDC2-43DA-BB0B-416CC287AC1B}</Project>
@@ -24,7 +28,7 @@
   <ItemGroup Condition="'$(FineUIUseLocalSource)' != 'true'">
     <Reference Include="FineUI.Pro, Version=16.0.0.0, Culture=neutral, PublicKeyToken=9cbe753c029f291a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(MSBuildThisFileDirectory)packages\FineUI.Pro.$(FineUIPackageVersion)\lib\net20\FineUI.Pro.dll</HintPath>
+      <HintPath>$(FineUIProPackageDll)</HintPath>
     </Reference>
   </ItemGroup>
 
@@ -32,5 +36,11 @@
           BeforeTargets="PrepareForBuild"
           Condition="'$(FineUIUseLocalSource)' == 'true' and !Exists('$(FineUILocalProject)')">
     <Error Text="FineUI 本地源码项目不存在：$(FineUILocalProject)" />
+  </Target>
+
+  <Target Name="ValidateFineUIPackageRestored"
+          BeforeTargets="PrepareForBuild"
+          Condition="'$(FineUIUseLocalSource)' != 'true' and '$(DesignTimeBuild)' != 'true' and !Exists('$(FineUIProPackageDll)')">
+    <Error Text="未找到 NuGet 包 FineUI.Pro $(FineUIPackageVersion)：$(FineUIProPackageDll) 不存在，说明克隆后还没做过包还原。请在 Visual Studio 中右键解决方案选「还原 NuGet 程序包」，然后重新生成。" />
   </Target>
 </Project>
