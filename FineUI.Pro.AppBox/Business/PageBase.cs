@@ -100,10 +100,9 @@ namespace FineUI.Pro.AppBox
                 // 为所有页面添加公共JS：<script type="text/css" href="res/js/common.js"></script>
                 var commonJSPath = String.Format("<script type=\"text/javascript\" src=\"{0}\"></script>", PageContext.ResolveUrl("~/res/js/common.js?v" + GlobalConfig.ProductVersion));
                 PageContext.RegisterPostStartupScript("FineUI.Pro.AppBox_EF_common_js", commonJSPath, false);
-                // AppBox 专属脚本（下载源码 / 最大化 / 帮助菜单 / 关闭弹出窗口）。
-                // 必须和 common.js 同层注册：这些回调在 iframe 子页里也会被调用。
-                var appboxJSPath = String.Format("<script type=\"text/javascript\" src=\"{0}\"></script>", PageContext.ResolveUrl("~/res/js/appbox.js?v" + GlobalConfig.ProductVersion));
-                PageContext.RegisterPostStartupScript("FineUI.Pro.AppBox_EF_appbox_js", appboxJSPath, false);
+                // 关闭弹出窗口的回调会在 iframe 子页里调用，必须和 common.js 同层注册。
+                var appboxCommonJSPath = String.Format("<script type=\"text/javascript\" src=\"{0}\"></script>", PageContext.ResolveUrl("~/res/js/appbox-common.js?v" + GlobalConfig.ProductVersion));
+                PageContext.RegisterPostStartupScript("FineUI.Pro.AppBox_EF_appbox_common_js", appboxCommonJSPath, false);
 
 
                 // 页面水印

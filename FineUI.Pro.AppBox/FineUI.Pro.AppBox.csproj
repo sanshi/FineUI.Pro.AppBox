@@ -563,8 +563,10 @@
     <Content Include="res\images\themes\ui_darkness.png" />
     <Content Include="res\images\themes\ui_lightness.png" />
     <Content Include="res\images\themes\vader.png" />
+    <Content Include="res\js\appbox-common.js" />
     <Content Include="res\js\common.js" />
     <Content Include="res\js\index.js" />
+    <Content Include="res\js\index-appbox.js" />
     <Content Include="res\js\mobileview.js" />
     <Content Include="res\themes\bootstrap_pure\theme.css" />
     <Content Include="res\themes\custom_default\theme.css" />
