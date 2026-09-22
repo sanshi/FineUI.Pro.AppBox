@@ -1,4 +1,5 @@
-﻿
+
+
 
 // 显示居中通知对话框（messageIcon: 'information', 'warning', 'question', 'error', 'success'）
 function showCenterNotify(message, messageIcon) {
@@ -14,9 +15,4 @@ function showCenterNotify(message, messageIcon) {
         messageAlign: 'center',
         minWidth: 200
     });
-}
-
-// 关闭当前所在的弹出窗口（子页“关闭”按钮的 ClickHandler）
-function onCloseActiveWindowClick(event) {
-    F.activeWindow.hide();
 }
