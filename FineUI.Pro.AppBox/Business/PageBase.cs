@@ -429,6 +429,14 @@ namespace FineUI.Pro.AppBox
         /// <returns></returns>
         protected List<string> GetRolePowerNames()
         {
+            // 同一浏览器切换账号时会话可能仍被复用，权限缓存只能归属于创建它的用户。
+            var identityID = GetIdentityID();
+            if (!Object.Equals(Session["UserPowerIdentityID"], identityID))
+            {
+                Session.Remove("UserPowerList");
+                Session["UserPowerIdentityID"] = identityID;
+            }
+
             // 将用户拥有的权限列表保存在Session中，这样就避免每个请求多次查询数据库
             if (Session["UserPowerList"] == null)
             {

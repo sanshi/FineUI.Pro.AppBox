@@ -74,6 +74,9 @@ namespace FineUI.Pro.AppBox
 
         private void LoginSuccess(User user)
         {
+            // 登录身份切换后不能沿用上一账号的权限缓存。
+            Session.Remove("UserPowerList");
+            Session.Remove("UserPowerIdentityID");
             RegisterOnlineUser(user);
 
             // 用户所属的角色字符串，以逗号分隔

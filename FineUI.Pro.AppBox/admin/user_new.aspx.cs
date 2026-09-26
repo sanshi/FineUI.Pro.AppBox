@@ -133,8 +133,8 @@ namespace FineUI.Pro.AppBox.admin
                 ReplaceEntities<Title>(item.Titles, titleIDs);
             }
 
-            // 添加所有部门
-            if (ddbDept.Value != null)
+            // 未选择部门时下拉框可能返回空字符串，不能按数字转换。
+            if (!String.IsNullOrEmpty(ddbDept.Value))
             {
                 var newDeptID = Convert.ToInt32(ddbDept.Value);
                 item.DeptID = newDeptID;
