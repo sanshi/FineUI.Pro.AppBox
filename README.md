@@ -4,7 +4,7 @@ FineUI.Pro.AppBox 是 FineUI 官方应用系统样板，一个基于 FineUI.Pro�
 
 ## 依赖方式
 
-项目文件已声明从公共软件包仓库获取的 NuGet 包 `FineUI.Pro`。包本身不随仓库分发，克隆后需要先做一次包还原，还原结果落在仓库根目录的 `packages` 文件夹（该文件夹不进入版本控制）；仓库不包含 FineUI.Core.dll、FineUI.Pro.dll、fineui-java.jar，也不包含 FineUI 框架源码。
+项目文件已声明从公共软件包仓库获取的 NuGet 包 `FineUI.Pro`。包本身不随仓库分发，克隆后需要先做一次包还原，还原结果落在仓库根目录的 `packages` 文件夹（该文件夹不进入版本控制）。
 
 **还原完成之前，Visual Studio 会把 `FineUI.Pro` 显示成带黄色警告的引用，这是包还没下载的正常状态，不是项目文件写错了。** 此时直接生成会失败，并给出对应的还原办法。
 
