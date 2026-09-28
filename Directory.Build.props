@@ -11,6 +11,8 @@
 
   <Import Project="$(MSBuildThisFileDirectory)FineUI.Enterprise.props"
           Condition="Exists('$(MSBuildThisFileDirectory)FineUI.Enterprise.props')" />
+  <Import Project="$(MSBuildThisFileDirectory)FineUI.Pro.Enterprise.props"
+          Condition="Exists('$(MSBuildThisFileDirectory)FineUI.Pro.Enterprise.props')" />
   <Import Project="$(MSBuildThisFileDirectory)Directory.Build.local.props"
           Condition="Exists('$(MSBuildThisFileDirectory)Directory.Build.local.props')" />
 
