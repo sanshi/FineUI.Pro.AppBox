@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-    <title>系统登陆</title>
+    <title>系统登录</title>
     <script type="text/javascript">
 
         // 本页面一定是顶层窗口，不会嵌在IFrame中
@@ -40,7 +40,7 @@
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server"></f:PageManager>
         <f:Window ID="Window1" runat="server" IsModal="true" Hidden="false" EnableClose="false"
-            EnableMaximize="false" WindowPosition="GoldenSection" Icon="Key" Title="系统登陆"
+            EnableMaximize="false" WindowPosition="GoldenSection" Icon="Key" Title="系统登录"
             Layout="HBox" BoxConfigAlign="Stretch" BoxConfigPosition="Start" Width="500px">
             <Items>
                 <f:Image ID="imageLogin" ImageUrl="~/res/images/login/login_2.png" runat="server"
@@ -62,7 +62,7 @@
                         <f:ToolbarText Text="管理员账号: admin/admin" runat="server"></f:ToolbarText>
                         <f:ToolbarFill runat="server"></f:ToolbarFill>
                         <f:Button ID="btnSubmit" Icon="LockOpen" Type="Submit" runat="server" ValidateForms="SimpleForm1"
-                            OnClick="btnSubmit_Click" Text="登陆">
+                            OnClick="btnSubmit_Click" Text="登录">
                         </f:Button>
                     </Items>
                 </f:Toolbar>

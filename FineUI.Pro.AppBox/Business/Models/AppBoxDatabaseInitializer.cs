@@ -253,7 +253,7 @@ namespace FineUI.Pro.AppBox
                 new Power
                 {
                     Name = "CoreUserChangePassword",
-                    Title = "修改用户登陆密码",
+                    Title = "修改用户登录密码",
                     GroupName = "CoreUser"
                 },
                 new Power

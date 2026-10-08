@@ -120,7 +120,7 @@ namespace FineUI.Pro.AppBox
         // 获取用户可用的菜单列表
         private List<Menu> ResolveUserMenuList()
         {
-            // 当前登陆用户的权限列表
+            // 当前登录用户的权限列表
             List<string> rolePowerNames = GetRolePowerNames();
 
             // 当前用户所属角色可用的菜单列表
