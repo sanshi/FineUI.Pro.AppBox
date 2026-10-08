@@ -11,7 +11,7 @@
 <body class="f-body-darkerbg">
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Panel ID="Panel1" Layout="HBox" BoxConfigChildMargin="0 10 0 0" ShowBorder="false" ShowHeader="false" IsFluid="true" Margin="20px" runat="server">
+        <f:Panel ID="Panel1" Layout="HBox" BoxConfigSpace="10" ShowBorder="false" ShowHeader="false" IsFluid="true" Margin="20px" runat="server">
             <Items>
                 <f:Panel BoxFlex="1" ShowBorder="false" ShowHeader="false" runat="server">
                     <Items>
@@ -27,7 +27,7 @@
                         </f:Panel>
                     </Items>
                 </f:Panel>
-                <f:Panel BoxFlex="1" Margin="0" ShowBorder="false" ShowHeader="false" runat="server">
+                <f:Panel BoxFlex="1" ShowBorder="false" ShowHeader="false" runat="server">
                     <Items>
                         <f:Panel ID="Panel3" Title="代办事宜" Height="200px" runat="server" MarginBottom="10px" BodyPadding="10px" ShowBorder="true" ShowBorderShadow="true" ShowHeader="true">
                             <Items>
