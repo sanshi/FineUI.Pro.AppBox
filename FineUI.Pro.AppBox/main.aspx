@@ -87,7 +87,7 @@
                                             <f:Listener Event="click" Handler="onThemeSelectClick" />
                                         </Listeners>
                                     </f:Button>
-                                    <f:Button runat="server" ID="btnUserName" CssClass="userpicaction" Text="三生石上" IconUrl="~/res/images/my_face_80.jpg"
+                                    <f:Button runat="server" ID="btnUserName" CssClass="userpicaction" Text="三生石上" IconUrl="~/res/images/my-face-80.jpg"
                                         IconAlign="Left" EnableDefaultState="false" EnableDefaultCorner="false">
                                         <Menu runat="server">
                                             <f:MenuButton ID="btnHelp" Icon="Help" Text="系统帮助" runat="server">

@@ -5,7 +5,6 @@
 <head runat="server">
     <title>系统登录</title>
     <script type="text/javascript">
-
         // 本页面一定是顶层窗口，不会嵌在IFrame中
         if (top.window != window) {
             top.window.location.href = "./default.aspx";
@@ -24,30 +23,28 @@
             margin-bottom: 0 !important;
         }
 
-            .login-image .f-field-label {
-                display: flex;
-                align-items: center;
-            }
+        .login-image .f-field-label {
+            display: flex;
+            align-items: center;
+        }
 
-            .login-image img {
-                width: 160px;
-                height: 160px;
-                padding: 10px;
-            }
+        .login-image img {
+            width: 160px;
+            height: 160px;
+            padding: 10px;
+        }
+
     </style>
 </head>
 <body class="f-body-darkerbg">
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server"></f:PageManager>
-        <f:Window ID="Window1" runat="server" IsModal="true" Hidden="false" EnableClose="false"
-            EnableMaximize="false" WindowPosition="GoldenSection" Icon="Key" Title="系统登录"
-            Layout="HBox" BoxConfigAlign="Stretch" BoxConfigPosition="Start" Width="500px">
+        <f:Window ID="Window1" runat="server" IsModal="true" Hidden="false" EnableClose="false" EnableMaximize="false" WindowPosition="GoldenSection" Icon="Key"
+            Title="系统登录" Layout="HBox" BoxConfigAlign="Stretch" BoxConfigPosition="Start" Width="500px">
             <Items>
-                <f:Image ID="imageLogin" ImageUrl="~/res/images/login/login_2.png" runat="server"
-                    CssClass="login-image">
+                <f:Image ID="imageLogin" ImageUrl="~/res/images/login/login-2.png" runat="server" CssClass="login-image">
                 </f:Image>
-                <f:SimpleForm ID="SimpleForm1" LabelAlign="Top" BoxFlex="1" runat="server"
-                    BodyPadding="30px 20px" ShowBorder="false" ShowHeader="false">
+                <f:SimpleForm ID="SimpleForm1" LabelAlign="Top" BoxFlex="1" runat="server" BodyPadding="30px 20px" ShowBorder="false" ShowHeader="false">
                     <Items>
                         <f:TextBox ID="tbxUserName" FocusOnPageLoad="true" runat="server" Label="帐号" Required="true" ShowRedStar="true" Text="">
                         </f:TextBox>
@@ -61,8 +58,7 @@
                     <Items>
                         <f:ToolbarText Text="管理员账号: admin/admin" runat="server"></f:ToolbarText>
                         <f:ToolbarFill runat="server"></f:ToolbarFill>
-                        <f:Button ID="btnSubmit" Icon="LockOpen" Type="Submit" runat="server" ValidateForms="SimpleForm1"
-                            OnClick="btnSubmit_Click" Text="登录">
+                        <f:Button ID="btnSubmit" Icon="LockOpen" Type="Submit" runat="server" ValidateForms="SimpleForm1" OnClick="btnSubmit_Click" Text="登录">
                         </f:Button>
                     </Items>
                 </f:Toolbar>
