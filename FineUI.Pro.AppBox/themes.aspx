@@ -5,7 +5,6 @@
 <head runat="server">
     <title></title>
     <style>
-
         body.f-body {
             padding: 10px;
         }
@@ -19,43 +18,43 @@
             border-bottom-right-radius: 5px;
         }
 
-            ul.main li {
-                display: inline-block;
-                margin: 5px;
-                border-width: 0;
-                padding: 10px;
-                border-radius: 10px;
-                text-align: center;
-                cursor: pointer;
-            }
+        ul.main li {
+            display: inline-block;
+            margin: 5px;
+            border-width: 0;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
 
-                ul.main li.f-state-hover,
-                ul.main li.f-state-active {
-                    border-style: solid;
-                    border-width: 3px;
-                    padding: 7px;
-                }
+        ul.main li.f-state-hover,
+        ul.main li.f-state-active {
+            border-style: solid;
+            border-width: 3px;
+            padding: 7px;
+        }
 
-                ul.main li .title {
-                    text-align: center;
-                    font-size: 13px;
-                    margin-top: 10px;
-                }
+        ul.main li .title {
+            text-align: center;
+            font-size: 13px;
+            margin-top: 10px;
+        }
 
-                ul.main li.f-state-active .title {
-                    font-weight: bold;
-                }
+        ul.main li.f-state-active .title {
+            font-weight: bold;
+        }
 
-                ul.main li img {
-                    width: 125px;
-                    border-radius: 5px;
-                    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
-                }
+        ul.main li img {
+            width: 125px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
+        }
 
-                ul.main li.f-state-hover img,
-                ul.main li.f-state-active img {
-                    box-shadow: none;
-                }
+        ul.main li.f-state-hover img,
+        ul.main li.f-state-active img {
+            box-shadow: none;
+        }
 
         #themecontainer .grouptitle {
             font-size: 16px;
@@ -71,44 +70,45 @@
             margin-left: 10px;
             display: inline-block;
         }
+
     </style>
 </head>
 <body class="f-body-darkerbg">
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server"></f:PageManager>
         <div id="themecontainer">
-            
+
             <div class="grouptitle f-widget-content">
                 内置（Pure）
             </div>
             <ul class="main f-widget-content">
                 <li>
                     <a href="#">
-                        <img src="../res/images/themes/pure_black.png" alt="Pure Black" data-value="Pure_Black" />
+                        <img src="<%= PageContext.ResolveUrl("~/res/images/themes/pure_black.png") %>" alt="Pure Black" data-value="Pure_Black" />
                     </a>
                     <div class="title">Pure Black</div>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="../res/images/themes/pure_green.png" alt="Pure Green" data-value="Pure_Green" />
+                        <img src="<%= PageContext.ResolveUrl("~/res/images/themes/pure_green.png") %>" alt="Pure Green" data-value="Pure_Green" />
                     </a>
                     <div class="title">Pure Green</div>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="../res/images/themes/pure_blue.png" alt="Pure Blue" data-value="Pure_Blue" />
+                        <img src="<%= PageContext.ResolveUrl("~/res/images/themes/pure_blue.png") %>" alt="Pure Blue" data-value="Pure_Blue" />
                     </a>
                     <div class="title">Pure Blue</div>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="../res/images/themes/pure_purple.png" alt="Pure Purple" data-value="Pure_Purple" />
+                        <img src="<%= PageContext.ResolveUrl("~/res/images/themes/pure_purple.png") %>" alt="Pure Purple" data-value="Pure_Purple" />
                     </a>
                     <div class="title">Pure Purple</div>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="../res/images/themes/pure_orange.png" alt="Pure Orange" data-value="Pure_Orange" />
+                        <img src="<%= PageContext.ResolveUrl("~/res/images/themes/pure_orange.png") %>" alt="Pure Orange" data-value="Pure_Orange" />
                     </a>
                     <div class="title">Pure Orange</div>
                 </li>
@@ -119,62 +119,66 @@
             <ul class="main f-widget-content">
                 <li>
                     <a href="#">
-                        <img src="../res/images/themes/cupertino.png" alt="Cupertino" data-value="Cupertino" /></a>
+                        <img src="<%= PageContext.ResolveUrl("~/res/images/themes/cupertino.png") %>" alt="Cupertino" data-value="Cupertino" /></a>
                     <div class="title">Cupertino</div>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="../res/images/themes/start.png" alt="Start" data-value="Start" /></a>
+                        <img src="<%= PageContext.ResolveUrl("~/res/images/themes/start.png") %>" alt="Start" data-value="Start" /></a>
                     <div class="title">Start</div>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="../res/images/themes/dark_hive.png" alt="Dark Hive" data-value="Dark_Hive" /></a>
+                        <img src="<%= PageContext.ResolveUrl("~/res/images/themes/dark_hive.png") %>" alt="Dark Hive" data-value="Dark_Hive" /></a>
                     <div class="title">Dark Hive</div>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="../res/images/themes/flick.png" alt="Flick" data-value="Flick" /></a>
+                        <img src="<%= PageContext.ResolveUrl("~/res/images/themes/flick.png") %>" alt="Flick" data-value="Flick" /></a>
                     <div class="title">Flick</div>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="../res/images/themes/south_street.png" alt="South Street" data-value="South_Street" /></a>
+                        <img src="<%= PageContext.ResolveUrl("~/res/images/themes/south_street.png") %>" alt="South Street" data-value="South_Street" /></a>
                     <div class="title">South Street</div>
                 </li>
             </ul>
             <div class="grouptitle f-widget-content">
                 自定义
-            <span class="note">注：自定义主题的背景图片均来自网络，版权归原作者！
-            </span>
+                <span class="note">注：自定义主题的背景图片均来自网络，版权归原作者！
+                </span>
             </div>
             <ul class="main f-widget-content">
                 <li>
                     <a href="#">
-                        <img src="../res/images/themes/custom_default.png" alt="Custom Default" data-value="custom_default" /></a>
+                        <img src="<%= PageContext.ResolveUrl("~/res/images/themes/custom_default.png") %>" alt="Custom Default"
+                            data-value="custom_default" /></a>
                     <div class="title">Custom Default</div>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="../res/images/themes/image_green_rain.png" alt="Image Green Rain" data-value="image_green_rain" />
+                        <img src="<%= PageContext.ResolveUrl("~/res/images/themes/image_green_rain.png") %>" alt="Image Green Rain"
+                            data-value="image_green_rain" />
                     </a>
                     <div class="title">Image Green Rain</div>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="../res/images/themes/image_green_lotus.png" alt="Image Green Lotus" data-value="image_green_lotus" />
+                        <img src="<%= PageContext.ResolveUrl("~/res/images/themes/image_green_lotus.png") %>" alt="Image Green Lotus"
+                            data-value="image_green_lotus" />
                     </a>
                     <div class="title">Image Green Lotus</div>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="../res/images/themes/image_blue_sky.png" alt="Image Blue Sky" data-value="image_blue_sky" />
+                        <img src="<%= PageContext.ResolveUrl("~/res/images/themes/image_blue_sky.png") %>" alt="Image Blue Sky" data-value="image_blue_sky" />
                     </a>
                     <div class="title">Image Blue Sky</div>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="../res/images/themes/image_purple_fog.png" alt="Image Purple Fog" data-value="image_purple_fog" />
+                        <img src="<%= PageContext.ResolveUrl("~/res/images/themes/image_purple_fog.png") %>" alt="Image Purple Fog"
+                            data-value="image_purple_fog" />
                     </a>
                     <div class="title">Image Purple Fog</div>
                 </li>
@@ -183,33 +187,33 @@
 
         <div style="display: none;">
             <!-- 缓存主题使用的背景图片 -->
-            <img src="../res/themes/image_blue_sky/sky.jpg" />
-            <img src="../res/themes/image_green_lotus/lotus.jpg" />
-            <img src="../res/themes/image_green_rain/rain.jpg" />
-            <img src="../res/themes/image_purple_fog/fog.jpg" />
+            <img src="<%= PageContext.ResolveUrl("~/res/themes/image_blue_sky/sky.jpg") %>" />
+            <img src="<%= PageContext.ResolveUrl("~/res/themes/image_green_lotus/lotus.jpg") %>" />
+            <img src="<%= PageContext.ResolveUrl("~/res/themes/image_green_rain/rain.jpg") %>" />
+            <img src="<%= PageContext.ResolveUrl("~/res/themes/image_purple_fog/fog.jpg") %>" />
         </div>
 
     </form>
     <script>
-        F.ready(function () {
+        F.ready(function() {
             // 选择主题窗口
-            $('#themecontainer li').hover(function () {
+            $('#themecontainer li').hover(function() {
                 $(this).addClass('f-state-hover');
-            }, function () {
+            }, function() {
                 $(this).removeClass('f-state-hover');
-            }).click(function (event) {
+            }).click(function(event) {
                 event.preventDefault();
                 //var imgSrcRegex = /([^\.\/]+)\.png$/.exec(imgSrc);
                 var imgNode = $(this).find('img');
 
                 var themeName = imgNode.attr('data-value');
                 F.cookie('Theme', themeName, {
-                    expires: 100  // 单位：天
+                    expires: 100 // 单位：天
                 });
 
                 var themeTitle = imgNode.attr('alt');
                 F.cookie('Theme_Title', themeTitle, {
-                    expires: 100  // 单位：天
+                    expires: 100 // 单位：天
                 });
 
                 top.window.location.reload();
@@ -223,7 +227,7 @@
             }
             themeName = themeName.toLowerCase();
             var activedNode;
-            $('#themecontainer li').each(function () {
+            $('#themecontainer li').each(function() {
                 var cnode = $(this);
                 if (cnode.find('img').attr('data-value').toLowerCase() === themeName) {
                     cnode.addClass('f-state-active');
@@ -239,6 +243,7 @@
             }
 
         });
+
     </script>
 </body>
 </html>

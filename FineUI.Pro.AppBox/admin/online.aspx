@@ -14,8 +14,8 @@
                     <Rows>
                         <f:FormRow runat="server">
                             <Items>
-                                <f:TwinTriggerBox ID="ttbSearchMessage" runat="server" ShowLabel="false" EmptyText="在用户名中搜索"
-                                    Trigger1Icon="Clear" Trigger2Icon="Search" ShowTrigger1="false" OnTrigger2Click="ttbSearchMessage_Trigger2Click"
+                                <f:TwinTriggerBox ID="ttbSearchMessage" runat="server" ShowLabel="false" EmptyText="在用户名中搜索" Trigger1Icon="Clear"
+                                    Trigger2Icon="Search" ShowTrigger1="false" OnTrigger2Click="ttbSearchMessage_Trigger2Click"
                                     OnTrigger1Click="ttbSearchMessage_Trigger1Click">
                                 </f:TwinTriggerBox>
                                 <f:Label runat="server"></f:Label>
@@ -24,20 +24,23 @@
                     </Rows>
                 </f:Form>
                 <f:Grid ID="Grid1" runat="server" BoxFlex="1" ShowBorder="true" ShowBorderShadow="true" ShowHeader="false" EnableCheckBoxSelect="false"
-                    DataIDField="ID"
-                    AllowSorting="true" OnSort="Grid1_Sort" SortField="UpdateTime" SortDirection="DESC"
-                    AllowPaging="true" IsDatabasePaging="true" OnPageIndexChange="Grid1_PageIndexChange">
+                    DataIDField="ID" AllowSorting="true" OnSort="Grid1_Sort" SortField="UpdateTime" SortDirection="DESC" AllowPaging="true"
+                    IsDatabasePaging="true" OnPageIndexChange="Grid1_PageIndexChange">
                     <Columns>
                         <f:RowNumberField />
-                        <f:BoundField DataField="UpdateTime" SortField="UpdateTime" DataFormatString="{0:yyyy-MM-dd HH:mm}"
-                            Width="200px" HeaderText="最后操作时间" />
-                        <f:BoundField DataField="LoginTime" SortField="LoginTime" Width="200px" DataFormatString="{0:yyyy-MM-dd HH:mm}"
-                            HeaderText="登录时间" />
-                        <f:BoundField DataField="UserName" SortField="UserName" Width="100px" HeaderText="用户名" />
-                        <f:BoundField DataField="UserChineseName" SortField="UserChineseName" Width="100px" HeaderText="中文名" />
-                        <f:BoundField DataField="IPAdddress" ExpandUnusedSpace="true" HeaderText="IP地址" />
-                        <f:WindowField Text="查看" Title="查看" WindowID="Window1" DataIFrameUrlFields="UserID"
-                            DataIFrameUrlFormatString="~/admin/user_view.aspx?id={0}" Width="50px" />
+                        <f:RenderField DataField="UpdateTime" SortField="UpdateTime" Width="200px" HeaderText="最后操作时间" FieldType="Date" Renderer="Date"
+                            RendererArgument="yyyy-MM-dd HH:mm" />
+                        <f:RenderField DataField="LoginTime" SortField="LoginTime" Width="200px" HeaderText="登录时间" FieldType="Date" Renderer="Date"
+                            RendererArgument="yyyy-MM-dd HH:mm" />
+                        <f:RenderField DataField="UserName" SortField="UserName" Width="100px" HeaderText="用户名" />
+                        <f:RenderField DataField="UserChineseName" SortField="UserChineseName" Width="100px" HeaderText="中文名" />
+                        <f:RenderField DataField="IPAdddress" ExpandUnusedSpace="true" HeaderText="IP地址" />
+                        <f:RenderField Width="50px">
+                            <Commands>
+                                <f:Command CommandName="View" Text="查看" WindowTitle="查看" WindowID="Window1" WindowIFrameUrlFields="UserID"
+                                    WindowIFrameUrlFormatString="~/admin/user_view.aspx?id={0}" />
+                            </Commands>
+                        </f:RenderField>
                     </Columns>
                     <PageItems>
                         <f:ToolbarText runat="server" Text="每页记录数："></f:ToolbarText>
@@ -53,8 +56,8 @@
                 </f:Grid>
             </Items>
         </f:Panel>
-        <f:Window ID="Window1" runat="server" IsModal="true" Hidden="true" Target="Top" EnableResize="true"
-            EnableMaximize="true" EnableIFrame="true" Width="800px" Height="500px">
+        <f:Window ID="Window1" runat="server" IsModal="true" Hidden="true" Target="Top" EnableResize="true" EnableMaximize="true" EnableIFrame="true"
+            Width="800px" Height="500px">
         </f:Window>
     </form>
 </body>

@@ -32,25 +32,28 @@ namespace FineUI.Pro.AppBox.admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            ApplyCommandPermissions();
+
             if (!IsPostBack)
             {
                 LoadData();
             }
         }
 
+        // 行命令的启用状态不随 ViewState 保存；每次请求重新检查，使伪造的禁用命令也在操作前被拒绝。
+        private void ApplyCommandPermissions()
+        {
+            Grid1.FindCommand("Edit").Enabled = CheckPower("CoreDeptEdit");
+            Grid1.FindCommand("Delete").Enabled = CheckPower("CoreDeptDelete");
+        }
+
         private void LoadData()
         {
             var powerCoreDeptNew = CheckPower("CoreDeptNew");
-            var powerCoreDeptEdit = CheckPower("CoreDeptEdit");
-            var powerCoreDeptDelete = CheckPower("CoreDeptDelete");
 
             // 根据用户权限控制页面控件的可用状态
             btnNew.Enabled = powerCoreDeptNew;
 
-            // 行内编辑按钮的权限
-            Grid1.FindColumn("editField").Enabled = powerCoreDeptEdit;
-            // 行内删除按钮的权限
-            Grid1.FindColumn("deleteField").Enabled = powerCoreDeptDelete;
 
 
 

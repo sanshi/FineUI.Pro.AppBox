@@ -32,6 +32,8 @@ namespace FineUI.Pro.AppBox.admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            ApplyCommandPermissions();
+
             if (!IsPostBack)
             {
                 LoadData();
@@ -47,6 +49,12 @@ namespace FineUI.Pro.AppBox.admin
             }
         }
 
+        // 行命令的启用状态不随 ViewState 保存；每次请求重新检查，使伪造的禁用命令也在操作前被拒绝。
+        private void ApplyCommandPermissions()
+        {
+            Grid2.FindCommand("Delete").Enabled = CheckPower("CoreRoleUserDelete");
+        }
+
         private void LoadData()
         {
             var powerCoreRoleUserNew = CheckPower("CoreRoleUserNew");
@@ -56,8 +64,6 @@ namespace FineUI.Pro.AppBox.admin
             btnNew.Enabled = powerCoreRoleUserNew;
             btnDeleteSelected.Enabled = powerCoreRoleUserDelete;
 
-            // 行内删除按钮的权限
-            Grid2.FindColumn("deleteField").Enabled = powerCoreRoleUserDelete;
 
 
 

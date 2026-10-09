@@ -4,18 +4,22 @@
 <html>
 <head runat="server">
     <title>首页</title>
-    <link href="res/css/index.css" rel="stylesheet" />
-    <link href="res/css/appbox.css" rel="stylesheet" />
-    <link href="res/css/mobileview.css" rel="stylesheet" />
+    <%-- 将资源表达式放在独立容器内，保持 head 可追加控件，确保 FineUI 能插入公共脚本和样式。 --%>
+    <asp:PlaceHolder runat="server">
+        <link href="<%= PageContext.ResolveUrl("~/res/css/index.css") %>" rel="stylesheet" />
+        <link href="<%= PageContext.ResolveUrl("~/res/css/appbox.css") %>" rel="stylesheet" />
+        <link href="<%= PageContext.ResolveUrl("~/res/css/mobileview.css") %>" rel="stylesheet" />
 
-    <style type="text/css">
-        /* 侧边栏宽度：res/js/index.js 从这两个变量读初始宽度与折叠后的微型宽度，
+        <style type="text/css">
+            /* 侧边栏宽度：res/js/index.js 从这两个变量读初始宽度与折叠后的微型宽度，
            必须与侧栏区域上的 Width 属性保持一致（两处都改，否则初始宽度和拖动宽度会打架）。 */
-        :root {
-            --sidebar-width: 320px;
-            --sidebar-minimode-width: 70px;
-        }
-    </style>
+            :root {
+                --sidebar-width: 320px;
+                --sidebar-minimode-width: 70px;
+            }
+
+        </style>
+    </asp:PlaceHolder>
 </head>
 <body class="f-body-darkerbg">
     <form id="form1" runat="server">
@@ -23,8 +27,8 @@
         <f:Panel ID="mainPanel" Layout="Region" CssClass="mainpanel" ShowBorder="false" ShowHeader="false" IsViewPort="true" runat="server">
             <Items>
                 <f:Panel ID="sidebarRegion" CssClass="sidebarregion" RegionPosition="Left" ShowBorder="false" Width="320" ShowHeader="false"
-                    EnableCollapse="false" Collapsed="false" Layout="VBox" runat="server"
-                    RegionSplit="true" RegionSplitIcon="false" RegionSplitWidth="3" RegionSplitTransparent="true">
+                    EnableCollapse="false" Collapsed="false" Layout="VBox" runat="server" RegionSplit="true" RegionSplitIcon="false" RegionSplitWidth="3"
+                    RegionSplitTransparent="true">
                     <Items>
                         <f:ContentPanel CssClass="topregion" ShowBorder="false" ShowHeader="false" runat="server">
                             <div id="sideheader" class="f-widget-header f-mainheader">
@@ -48,8 +52,8 @@
                         </f:ContentPanel>
                         <f:Panel ID="leftPanel" CssClass="leftregion" BoxFlex="1" ShowBorder="false" ShowHeader="false" Layout="Fit" runat="server">
                             <Items>
-                                <f:Tree ID="treeMenu" ShowBorder="false" ShowHeader="false" EnableSingleClickExpand="true"
-                                    HideHScrollbar="true" HideVScrollbar="true" ExpanderToRight="true" HeaderStyle="true" AllHeaderStyle="true" runat="server">
+                                <f:Tree ID="treeMenu" ShowBorder="false" ShowHeader="false" EnableSingleClickExpand="true" HideHScrollbar="true"
+                                    HideVScrollbar="true" ExpanderToRight="true" HeaderStyle="true" AllHeaderStyle="true" runat="server">
                                 </f:Tree>
                             </Items>
                         </f:Panel>
@@ -63,28 +67,28 @@
                         <f:ContentPanel ID="topPanel" CssClass="topregion" ShowBorder="false" ShowHeader="false" runat="server">
                             <div id="header" class="f-widget-header f-mainheader">
                                 <div class="header-left">
-                                    <f:Button runat="server" ID="btnCollapseSidebar" CssClass="icononlyaction" ToolTip="折叠/展开侧边栏" IconAlign="Top" IconFont="_Fold"
- EnableDefaultState="false" EnableDefaultCorner="false" TabIndex="-1">
+                                    <f:Button runat="server" ID="btnCollapseSidebar" CssClass="icononlyaction" ToolTip="折叠/展开侧边栏" IconAlign="Top"
+                                        IconFont="_Fold" EnableDefaultState="false" EnableDefaultCorner="false" TabIndex="-1">
                                         <Listeners>
                                             <f:Listener Event="click" Handler="onFoldClick" />
                                         </Listeners>
                                     </f:Button>
                                 </div>
                                 <div class="header-right">
-                                    <f:Button CssClass="icontopaction" Text="下载源码" IconAlign="Top" IconFont="_Download"
- EnableDefaultState="false" EnableDefaultCorner="false" runat="server">
+                                    <f:Button CssClass="icontopaction" Text="下载源码" IconAlign="Top" IconFont="_Download" EnableDefaultState="false"
+                                        EnableDefaultCorner="false" runat="server">
                                         <Listeners>
                                             <f:Listener Event="click" Handler="onDownloadClick"></f:Listener>
                                         </Listeners>
                                     </f:Button>
                                     <f:Button CssClass="icontopaction" ID="btnThemeSelect" Text="主题仓库" IconAlign="Top" IconFont="_Skin"
- EnableDefaultState="false" EnableDefaultCorner="false" TabIndex="-1" runat="server">
+                                        EnableDefaultState="false" EnableDefaultCorner="false" TabIndex="-1" runat="server">
                                         <Listeners>
                                             <f:Listener Event="click" Handler="onThemeSelectClick" />
                                         </Listeners>
                                     </f:Button>
-                                    <f:Button runat="server" ID="btnUserName" CssClass="userpicaction" Text="三生石上" IconUrl="~/res/images/my_face_80.jpg" IconAlign="Left"
- EnableDefaultState="false" EnableDefaultCorner="false">
+                                    <f:Button runat="server" ID="btnUserName" CssClass="userpicaction" Text="三生石上" IconUrl="~/res/images/my_face_80.jpg"
+                                        IconAlign="Left" EnableDefaultState="false" EnableDefaultCorner="false">
                                         <Menu runat="server">
                                             <f:MenuButton ID="btnHelp" Icon="Help" Text="系统帮助" runat="server">
                                             </f:MenuButton>
@@ -97,7 +101,8 @@
                                 </div>
                             </div>
                         </f:ContentPanel>
-                        <f:TabStrip ID="mainTabStrip" CssClass="centerregion" ShowInkBar="true" InkBarPosition="Bottom" BoxFlex="1" ShowBorder="true" EnableTabCloseMenu="true" runat="server">
+                        <f:TabStrip ID="mainTabStrip" CssClass="centerregion" ShowInkBar="true" InkBarPosition="Bottom" BoxFlex="1" ShowBorder="true"
+                            EnableTabCloseMenu="true" runat="server">
                             <Tabs>
                                 <f:Tab ID="tabHomepage" Title="首页" IconFont="_Home" EnableIFrame="true" IFrameUrl="~/admin/default.aspx" runat="server">
                                 </f:Tab>
@@ -120,8 +125,8 @@
             </Items>
         </f:Panel>
 
-        <f:Window ID="windowThemeRoller" runat="server" Hidden="true" EnableIFrame="true" ClearIFrameAfterClose="false"
-            IFrameUrl="~/themes.aspx" IsModal="true" Width="850" Height="600" EnableClose="true" EnableMaximize="true" EnableResize="true" WindowPosition="Center">
+        <f:Window ID="windowThemeRoller" runat="server" Hidden="true" EnableIFrame="true" ClearIFrameAfterClose="false" IFrameUrl="~/themes.aspx" IsModal="true"
+            Width="850" Height="600" EnableClose="true" EnableMaximize="true" EnableResize="true" WindowPosition="Center">
         </f:Window>
 
     </form>
@@ -136,11 +141,12 @@
             tabHomepage: '<%= tabHomepage.ClientID %>',
             windowThemeRoller: '<%= windowThemeRoller.ClientID %>'
         };
+
     </script>
 
-    <script src="res/js/index.js"></script>
-    <script src="res/js/index-appbox.js"></script>
-    <script src="res/js/mobileview.js"></script>
+    <script src="<%= PageContext.ResolveUrl("~/res/js/index.js") %>"></script>
+    <script src="<%= PageContext.ResolveUrl("~/res/js/index-appbox.js") %>"></script>
+    <script src="<%= PageContext.ResolveUrl("~/res/js/mobileview.js") %>"></script>
 
 </body>
 </html>

@@ -9,7 +9,6 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using AspNet = System.Web.UI.WebControls;
 
 namespace FineUI.Pro.AppBox.admin
 {
@@ -115,10 +114,11 @@ namespace FineUI.Pro.AppBox.admin
                 }
             }
 
-            var powers = q.Select(g => new
+            // 分组查询先执行，再生成供浏览器渲染的数组，避免数据库翻译本地方法调用。
+            var powers = q.ToList().Select(g => new
             {
                 GroupName = g.Key,
-                Powers = g
+                Powers = GetPowerData(g)
             });
 
 
@@ -151,42 +151,35 @@ namespace FineUI.Pro.AppBox.admin
 
         #region Grid2 Events
 
-        protected void Grid2_RowDataBound(object sender, FineUI.Pro.GridRowEventArgs e)
+        // 同时绑定权限内容和当前角色的勾选状态，排序或切换角色后仍显示数据库中的授权结果。
+        private JArray GetPowerData(IEnumerable<Power> powers)
         {
-            AspNet.CheckBoxList ddlPowers = (AspNet.CheckBoxList)Grid2.Rows[e.RowIndex].FindControl("ddlPowers");
-
-            IGrouping<string, Power> powers = e.DataItem.GetType().GetProperty("Powers").GetValue(e.DataItem, null) as IGrouping<string, Power>;
-
-            foreach (Power power in powers.ToList())
+            JArray result = new JArray();
+            foreach (Power power in powers)
             {
-                AspNet.ListItem item = new AspNet.ListItem();
-                item.Value = power.ID.ToString();
-                // 权限标题是可编辑数据，ListItem.Text 会原样输出到 <label>，这里必须编码
-                item.Text = HttpUtility.HtmlEncode(power.Title);
-                item.Attributes["data-qtip"] = power.Name;
-
-                if (_currentRolePowers.ContainsKey(power.Name))
+                result.Add(new JObject
                 {
-                    item.Selected = true;
-                }
-                else
-                {
-                    item.Selected = false;
-                }
-
-                ddlPowers.Items.Add(item);
+                    { "id", power.ID },
+                    { "name", power.Name },
+                    { "title", power.Title },
+                    { "selected", _currentRolePowers.ContainsKey(power.Name) }
+                });
             }
+            return result;
         }
-
-
 
         protected void Grid2_Sort(object sender, GridSortEventArgs e)
         {
             BindGrid2();
         }
 
-        protected void btnGroupUpdate_Click(object sender, EventArgs e)
+        protected void Page_CustomEvent(object sender, CustomEventArgs e)
         {
+            if (e.EventName != "Grid2_SavePowers")
+            {
+                return;
+            }
+
             // 在操作之前进行权限检查
             if (!CheckPower("CoreRolePowerEdit"))
             {
@@ -201,20 +194,8 @@ namespace FineUI.Pro.AppBox.admin
             var roleID = Convert.ToInt32(Grid1.SelectedRowID);
 
 
-            // 当前角色新的权限列表
-            List<int> newPowerIDs = new List<int>();
-            for (int i = 0; i < Grid2.Rows.Count; i++)
-            {
-                AspNet.CheckBoxList ddlPowers = (AspNet.CheckBoxList)Grid2.Rows[i].FindControl("ddlPowers");
-                foreach (AspNet.ListItem item in ddlPowers.Items)
-                {
-                    if (item.Selected)
-                    {
-                        newPowerIDs.Add(Convert.ToInt32(item.Value));
-                    }
-                }
-            }
-
+            // 浏览器提交勾选的权限编号，服务端仍先检查修改权限，再保存授权。
+            List<int> newPowerIDs = e.EventArgumentsAsJObject.Value<JArray>("powerIDs").ToObject<List<int>>();
 
             Role role = DB.Roles.Include(r => r.Powers).Where(r => r.ID == roleID).FirstOrDefault();
 

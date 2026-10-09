@@ -14,8 +14,8 @@
                     <Rows>
                         <f:FormRow runat="server">
                             <Items>
-                                <f:TwinTriggerBox ID="ttbSearchMessage" runat="server" ShowLabel="false" EmptyText="在权限名称或标题中搜索"
-                                    Trigger1Icon="Clear" Trigger2Icon="Search" ShowTrigger1="false" OnTrigger2Click="ttbSearchMessage_Trigger2Click"
+                                <f:TwinTriggerBox ID="ttbSearchMessage" runat="server" ShowLabel="false" EmptyText="在权限名称或标题中搜索" Trigger1Icon="Clear"
+                                    Trigger2Icon="Search" ShowTrigger1="false" OnTrigger2Click="ttbSearchMessage_Trigger2Click"
                                     OnTrigger1Click="ttbSearchMessage_Trigger1Click">
                                 </f:TwinTriggerBox>
                                 <f:Label runat="server"></f:Label>
@@ -23,11 +23,9 @@
                         </f:FormRow>
                     </Rows>
                 </f:Form>
-                <f:Grid ID="Grid1" runat="server" BoxFlex="1" ShowBorder="true" ShowBorderShadow="true" ShowHeader="false" EnableCheckBoxSelect="true" 
-                    DataIDField="ID"
-                    AllowSorting="true" OnSort="Grid1_Sort" SortField="GroupName" SortDirection="DESC"
-                    AllowPaging="true" IsDatabasePaging="true" OnPageIndexChange="Grid1_PageIndexChange"
-                    OnRowCommand="Grid1_RowCommand">
+                <f:Grid ID="Grid1" runat="server" BoxFlex="1" ShowBorder="true" ShowBorderShadow="true" ShowHeader="false" EnableCheckBoxSelect="true"
+                    DataIDField="ID" AllowSorting="true" OnSort="Grid1_Sort" SortField="GroupName" SortDirection="DESC" AllowPaging="true"
+                    IsDatabasePaging="true" OnPageIndexChange="Grid1_PageIndexChange" OnRowCommand="Grid1_RowCommand">
                     <Toolbars>
                         <f:Toolbar ID="Toolbar1" runat="server">
                             <Items>
@@ -52,21 +50,26 @@
                     </PageItems>
                     <Columns>
                         <f:RowNumberField />
-                        <f:BoundField DataField="GroupName" SortField="GroupName" Width="120px" HeaderText="分组名称" />
-                        <f:BoundField DataField="Name" SortField="Name" Width="180px" HeaderText="权限名称" />
-                        <f:BoundField DataField="Title" SortField="Title" Width="180px" HeaderText="标题" />
-                        <f:BoundField DataField="Remark" ExpandUnusedSpace="true" HeaderText="备注" />
-                        <f:WindowField ColumnID="editField" TextAlign="Center" Icon="Pencil" ToolTip="编辑"
-                            WindowID="Window1" Title="编辑" DataIFrameUrlFields="ID" DataIFrameUrlFormatString="~/admin/power_edit.aspx?id={0}"
-                            Width="50px" />
-                        <f:LinkButtonField ColumnID="deleteField" TextAlign="Center" Icon="Delete" ToolTip="删除"
-                            ConfirmText="确定删除此记录？" ConfirmTarget="Top" CommandName="Delete" Width="50px" />
+                        <f:RenderField DataField="GroupName" SortField="GroupName" Width="120px" HeaderText="分组名称" />
+                        <f:RenderField DataField="Name" SortField="Name" Width="180px" HeaderText="权限名称" />
+                        <f:RenderField DataField="Title" SortField="Title" Width="180px" HeaderText="标题" />
+                        <f:RenderField DataField="Remark" ExpandUnusedSpace="true" HeaderText="备注" />
+                        <f:RenderField ColumnID="editField" TextAlign="Center" Width="50px">
+                            <Commands>
+                                <f:Command CommandName="Edit" Icon="Pencil" ToolTip="编辑" WindowID="Window1" WindowTitle="编辑" WindowIFrameUrlFields="ID"
+                                    WindowIFrameUrlFormatString="~/admin/power_edit.aspx?id={0}" />
+                            </Commands>
+                        </f:RenderField>
+                        <f:RenderField ColumnID="deleteField" TextAlign="Center" Width="50px">
+                            <Commands>
+                                <f:Command Icon="Delete" ToolTip="删除" ConfirmText="确定删除此记录？" ConfirmTarget="Top" CommandName="Delete" />
+                            </Commands>
+                        </f:RenderField>
                     </Columns>
                 </f:Grid>
             </Items>
         </f:Panel>
-        <f:Window ID="Window1" runat="server" IsModal="true" Hidden="true" Target="Top"
-            EnableResize="true" EnableMaximize="true" EnableIFrame="true"
+        <f:Window ID="Window1" runat="server" IsModal="true" Hidden="true" Target="Top" EnableResize="true" EnableMaximize="true" EnableIFrame="true"
             Width="900px" Height="650px" OnClose="Window1_Close">
         </f:Window>
     </form>
@@ -74,6 +77,7 @@
         function onNewClick(event) {
             F('<%= Window1.ClientID %>').show('<%= ResolveUrl("~/admin/power_new.aspx") %>', '新增权限');
         }
+
     </script>
 </body>
 </html>

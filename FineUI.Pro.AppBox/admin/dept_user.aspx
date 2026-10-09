@@ -11,15 +11,15 @@
         <f:PageManager ID="PageManager1" runat="server"></f:PageManager>
         <f:RegionPanel ID="RegionPanel1" ShowBorder="false" runat="server" IsViewPort="true" Margin="20px">
             <Regions>
-                <f:Region ID="Region1" ShowBorder="true" ShowBorderShadow="true" ShowHeader="false" Width="260" RegionPosition="Left" RegionSplit="true" RegionSplitIcon="false" RegionSplitWidth="10" Layout="Fit" runat="server">
+                <f:Region ID="Region1" ShowBorder="true" ShowBorderShadow="true" ShowHeader="false" Width="260" RegionPosition="Left" RegionSplit="true"
+                    RegionSplitIcon="false" RegionSplitWidth="10" Layout="Fit" runat="server">
                     <Items>
-                        <f:Grid ID="Grid1" runat="server" ShowBorder="true" ShowHeader="false" EnableCheckBoxSelect="false"
-                            DataIDField="ID"
-                            EnableMultiSelect="false" OnRowClick="Grid1_RowClick" EnableRowClickEvent="true"
-                            EnableTree="true" TreeColumn="Name" DataParentIDField="ParentID" ExpandAllTreeNodes="true">
+                        <f:Grid ID="Grid1" runat="server" ShowBorder="true" ShowHeader="false" EnableCheckBoxSelect="false" DataIDField="ID"
+                            EnableMultiSelect="false" OnRowClick="Grid1_RowClick" EnableRowClickEvent="true" EnableTree="true" TreeColumn="Name"
+                            DataParentIDField="ParentID" ExpandAllTreeNodes="true">
                             <Columns>
                                 <f:RowNumberField EnableTreeNumber="true"></f:RowNumberField>
-                                <f:BoundField ColumnID="Name" DataField="Name" ExpandUnusedSpace="true" HeaderText="部门名称"></f:BoundField>
+                                <f:RenderField ColumnID="Name" DataField="Name" ExpandUnusedSpace="true" HeaderText="部门名称" />
                             </Columns>
                         </f:Grid>
                     </Items>
@@ -30,8 +30,9 @@
                             <Rows>
                                 <f:FormRow runat="server">
                                     <Items>
-                                        <f:TwinTriggerBox ID="ttbSearchMessage" runat="server" ShowLabel="false" EmptyText="在用户名称中搜索" Trigger1Icon="Clear" Trigger2Icon="Search" ShowTrigger1="false"
-                                            OnTrigger2Click="ttbSearchMessage_Trigger2Click" OnTrigger1Click="ttbSearchMessage_Trigger1Click">
+                                        <f:TwinTriggerBox ID="ttbSearchMessage" runat="server" ShowLabel="false" EmptyText="在用户名称中搜索" Trigger1Icon="Clear"
+                                            Trigger2Icon="Search" ShowTrigger1="false" OnTrigger2Click="ttbSearchMessage_Trigger2Click"
+                                            OnTrigger1Click="ttbSearchMessage_Trigger1Click">
                                         </f:TwinTriggerBox>
                                         <f:Label runat="server"></f:Label>
                                     </Items>
@@ -39,10 +40,8 @@
                             </Rows>
                         </f:Form>
                         <f:Grid ID="Grid2" runat="server" BoxFlex="1" ShowBorder="true" ShowBorderShadow="true" ShowHeader="false" EnableCheckBoxSelect="true"
-                            DataIDField="ID"
-                            AllowSorting="true" OnSort="Grid2_Sort" SortField="Name" SortDirection="DESC"
-                            AllowPaging="true" IsDatabasePaging="true" OnPageIndexChange="Grid2_PageIndexChange"
-                            OnRowCommand="Grid2_RowCommand">
+                            DataIDField="ID" AllowSorting="true" OnSort="Grid2_Sort" SortField="Name" SortDirection="DESC" AllowPaging="true"
+                            IsDatabasePaging="true" OnPageIndexChange="Grid2_PageIndexChange" OnRowCommand="Grid2_RowCommand">
                             <Toolbars>
                                 <f:Toolbar ID="Toolbar1" runat="server">
                                     <Items>
@@ -67,14 +66,23 @@
                             </PageItems>
                             <Columns>
                                 <f:RowNumberField EnablePagingNumber="true"></f:RowNumberField>
-                                <f:BoundField DataField="Name" SortField="Name" Width="100px" HeaderText="用户名"></f:BoundField>
-                                <f:BoundField DataField="ChineseName" SortField="ChineseName" Width="100px" HeaderText="中文名"></f:BoundField>
-                                <f:CheckBoxField DataField="Enabled" SortField="Enabled" HeaderText="启用" RenderAsStaticField="true" Width="80px"></f:CheckBoxField>
-                                <f:BoundField DataField="Gender" SortField="Gender" Width="80px" HeaderText="性别"></f:BoundField>
-                                <f:BoundField DataField="Email" SortField="Email" Width="180px" HeaderText="邮箱"></f:BoundField>
-                                <f:BoundField DataField="Remark" ExpandUnusedSpace="true" HeaderText="备注"></f:BoundField>
-                                <f:WindowField TextAlign="Center" Icon="Information" ToolTip="查看详细信息" Title="查看详细信息" WindowID="Window1" DataIFrameUrlFields="ID" DataIFrameUrlFormatString="~/admin/user_view.aspx?id={0}" Width="50px"></f:WindowField>
-                                <f:LinkButtonField ColumnID="deleteField" TextAlign="Center" Icon="Delete" ToolTip="从当前部门中移除此用户" ConfirmText="确定从当前部门中移除此用户？" ConfirmTarget="Top" CommandName="Delete" Width="50px"></f:LinkButtonField>
+                                <f:RenderField DataField="Name" SortField="Name" Width="100px" HeaderText="用户名" />
+                                <f:RenderField DataField="ChineseName" SortField="ChineseName" Width="100px" HeaderText="中文名" />
+                                <f:RenderCheckField DataField="Enabled" SortField="Enabled" HeaderText="启用" Width="80px" RenderAsStaticField="true" />
+                                <f:RenderField DataField="Gender" SortField="Gender" Width="80px" HeaderText="性别" />
+                                <f:RenderField DataField="Email" SortField="Email" Width="180px" HeaderText="邮箱" />
+                                <f:RenderField DataField="Remark" ExpandUnusedSpace="true" HeaderText="备注" />
+                                <f:RenderField TextAlign="Center" Width="50px">
+                                    <Commands>
+                                        <f:Command CommandName="View" Icon="Information" ToolTip="查看详细信息" WindowTitle="查看详细信息" WindowID="Window1"
+                                            WindowIFrameUrlFields="ID" WindowIFrameUrlFormatString="~/admin/user_view.aspx?id={0}" />
+                                    </Commands>
+                                </f:RenderField>
+                                <f:RenderField ColumnID="deleteField" TextAlign="Center" Width="50px">
+                                    <Commands>
+                                        <f:Command Icon="Delete" ToolTip="从当前部门中移除此用户" ConfirmText="确定从当前部门中移除此用户？" ConfirmTarget="Top" CommandName="Delete" />
+                                    </Commands>
+                                </f:RenderField>
                             </Columns>
                         </f:Grid>
                     </Items>
@@ -103,13 +111,14 @@
                 message: F.rawHtml('确定要从当前部门移除选中的&nbsp;<span class="highlight">{0}</span>&nbsp;项记录吗？', selectedRows.length),
                 messageIcon: 'warning',
                 target: '_top',
-                ok: function () {
+                ok: function() {
                     F.customEvent('Grid2_DeleteRows', {
                         rowIDs: selectedRows
                     });
                 }
             });
         }
+
     </script>
 </body>
 </html>

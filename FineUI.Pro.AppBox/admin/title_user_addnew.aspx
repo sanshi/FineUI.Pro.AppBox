@@ -19,9 +19,9 @@
                         <f:Button ID="btnSaveClose" Icon="SystemSaveClose" OnClick="btnSaveClose_Click" runat="server" Text="选择后关闭">
                         </f:Button>
                         <f:ToolbarFill runat="server"></f:ToolbarFill>
-                        <f:TwinTriggerBox ID="ttbSearchMessage" Width="160px" runat="server" ShowLabel="false"
-                            EmptyText="在用户名称中搜索" Trigger1Icon="Clear" Trigger2Icon="Search" ShowTrigger1="false"
-                            OnTrigger2Click="ttbSearchMessage_Trigger2Click" OnTrigger1Click="ttbSearchMessage_Trigger1Click">
+                        <f:TwinTriggerBox ID="ttbSearchMessage" Width="160px" runat="server" ShowLabel="false" EmptyText="在用户名称中搜索" Trigger1Icon="Clear"
+                            Trigger2Icon="Search" ShowTrigger1="false" OnTrigger2Click="ttbSearchMessage_Trigger2Click"
+                            OnTrigger1Click="ttbSearchMessage_Trigger1Click">
                         </f:TwinTriggerBox>
                     </Items>
                 </f:Toolbar>
@@ -32,19 +32,18 @@
                         <f:Label ID="labSelectedUsers" EncodeText="false" CssStyle="margin:0;" runat="server"></f:Label>
                     </Items>
                 </f:Panel>
-                <f:Grid ID="Grid1" BoxFlex="1" runat="server" ShowBorder="true" ShowHeader="false" EnableCheckBoxSelect="true"
-                    DataIDField="ID"
-                    AllowSorting="true" OnSort="Grid1_Sort" SortField="Name" SortDirection="DESC"
-                    AllowPaging="true" IsDatabasePaging="true" OnPageIndexChange="Grid1_PageIndexChange"
-                    ClearSelectionBeforePaging="false" ClearSelectionBeforeBinding="false" KeepPagedSelection="true" KeepCurrentSelection="true">
+                <f:Grid ID="Grid1" BoxFlex="1" runat="server" ShowBorder="true" ShowHeader="false" EnableCheckBoxSelect="true" DataIDField="ID"
+                    AllowSorting="true" OnSort="Grid1_Sort" SortField="Name" SortDirection="DESC" AllowPaging="true" IsDatabasePaging="true"
+                    OnPageIndexChange="Grid1_PageIndexChange" ClearSelectionBeforePaging="false" ClearSelectionBeforeBinding="false" KeepPagedSelection="true"
+                    KeepCurrentSelection="true">
                     <Columns>
                         <f:RowNumberField EnablePagingNumber="true" />
-                        <f:BoundField ColumnID="Name" DataField="Name" SortField="Name" Width="100px" HeaderText="用户名" />
-                        <f:BoundField ColumnID="ChineseName" DataField="ChineseName" SortField="RealName" Width="100px" HeaderText="中文名" />
-                        <f:CheckBoxField DataField="Enabled" SortField="Enabled" HeaderText="启用" RenderAsStaticField="true" Width="80px" />
-                        <f:BoundField DataField="Gender" SortField="Gender" Width="80px" HeaderText="性别" />
-                        <f:BoundField DataField="Email" SortField="Email" Width="180px" HeaderText="邮箱" />
-                        <f:BoundField DataField="Remark" ExpandUnusedSpace="true" HeaderText="备注" />
+                        <f:RenderField ColumnID="Name" DataField="Name" SortField="Name" Width="100px" HeaderText="用户名" />
+                        <f:RenderField ColumnID="ChineseName" DataField="ChineseName" SortField="RealName" Width="100px" HeaderText="中文名" />
+                        <f:RenderCheckField DataField="Enabled" SortField="Enabled" HeaderText="启用" Width="80px" RenderAsStaticField="true" />
+                        <f:RenderField DataField="Gender" SortField="Gender" Width="80px" HeaderText="性别" />
+                        <f:RenderField DataField="Email" SortField="Email" Width="180px" HeaderText="邮箱" />
+                        <f:RenderField DataField="Remark" ExpandUnusedSpace="true" HeaderText="备注" />
                     </Columns>
                     <PageItems>
                         <f:ToolbarText runat="server" Text="每页记录数："></f:ToolbarText>
@@ -84,8 +83,9 @@
                 labSelectedUsers.setText('尚未选中任何用户');
             } else {
                 var result = [];
-                $.each(selectedRowIds, function (index, item) {
-                    var rowId = item, rowData = cachedRows[rowId];
+                $.each(selectedRowIds, function(index, item) {
+                    var rowId = item,
+                        rowData = cachedRows[rowId];
 
                     var name = rowData.values['Name'];
                     var chineseName = rowData.values['ChineseName'];
@@ -98,7 +98,7 @@
 
         // 缓存当前页选中行的数据
         function cacheCurrentPage() {
-            $.each(F(Grid1ClientID).getSelectedRows(true), function (index, item) {
+            $.each(F(Grid1ClientID).getSelectedRows(true), function(index, item) {
                 var rowId = item.id;
                 if (!cachedRows[rowId]) {
                     cachedRows[rowId] = item;

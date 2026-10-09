@@ -10,10 +10,8 @@
         <f:PageManager ID="PageManager1" runat="server" />
         <f:Panel ID="Panel1" runat="server" IsViewPort="true" Margin="20px" ShowBorder="false" ShowHeader="false" Layout="Fit">
             <Items>
-                <f:Grid ID="Grid1" runat="server" ShowBorder="true" ShowBorderShadow="true" ShowHeader="false" EnableCheckBoxSelect="false"
-                    DataIDField="ID"
-					EnableTree="true" TreeColumn="Name" DataParentIDField="ParentID" ExpandAllTreeNodes="true"
-                    OnRowCommand="Grid1_RowCommand">
+                <f:Grid ID="Grid1" runat="server" ShowBorder="true" ShowBorderShadow="true" ShowHeader="false" EnableCheckBoxSelect="false" DataIDField="ID"
+                    EnableTree="true" TreeColumn="Name" DataParentIDField="ParentID" ExpandAllTreeNodes="true" OnRowCommand="Grid1_RowCommand">
                     <Toolbars>
                         <f:Toolbar ID="Toolbar1" Position="Top" runat="server">
                             <Items>
@@ -25,22 +23,27 @@
                     </Toolbars>
                     <Columns>
                         <f:RowNumberField EnableTreeNumber="true" />
-                        <f:BoundField ColumnID="Name" DataField="Name" HeaderText="菜单标题" Width="200px" />
-                        <f:BoundField DataField="NavigateUrl" HeaderText="链接" Width="200px" />
-                        <f:BoundField DataField="ViewPowerName" HeaderText="浏览权限" Width="150px" />
-                        <f:BoundField DataField="Remark" HeaderText="备注" ExpandUnusedSpace="true" />
-                        <f:BoundField DataField="SortIndex" HeaderText="排序" Width="80px" />
-                        <f:WindowField ColumnID="editField" TextAlign="Center" Icon="Pencil" ToolTip="编辑"
-                            WindowID="Window1" Title="编辑" DataIFrameUrlFields="ID" DataIFrameUrlFormatString="~/admin/menu_edit.aspx?id={0}"
-                            Width="50px" />
-                        <f:LinkButtonField ColumnID="deleteField" TextAlign="Center" Icon="Delete" ToolTip="删除"
-                            ConfirmText="确定删除此记录？" ConfirmTarget="Top" CommandName="Delete" Width="50px" />
+                        <f:RenderField ColumnID="Name" DataField="Name" HeaderText="菜单标题" Width="200px" />
+                        <f:RenderField DataField="NavigateUrl" HeaderText="链接" Width="200px" />
+                        <f:RenderField DataField="ViewPowerName" HeaderText="浏览权限" Width="150px" />
+                        <f:RenderField DataField="Remark" HeaderText="备注" ExpandUnusedSpace="true" />
+                        <f:RenderField DataField="SortIndex" HeaderText="排序" Width="80px" />
+                        <f:RenderField ColumnID="editField" TextAlign="Center" Width="50px">
+                            <Commands>
+                                <f:Command CommandName="Edit" Icon="Pencil" ToolTip="编辑" WindowID="Window1" WindowTitle="编辑" WindowIFrameUrlFields="ID"
+                                    WindowIFrameUrlFormatString="~/admin/menu_edit.aspx?id={0}" />
+                            </Commands>
+                        </f:RenderField>
+                        <f:RenderField ColumnID="deleteField" TextAlign="Center" Width="50px">
+                            <Commands>
+                                <f:Command Icon="Delete" ToolTip="删除" ConfirmText="确定删除此记录？" ConfirmTarget="Top" CommandName="Delete" />
+                            </Commands>
+                        </f:RenderField>
                     </Columns>
                 </f:Grid>
             </Items>
         </f:Panel>
-        <f:Window ID="Window1" runat="server" IsModal="true" Hidden="true"
-            Target="Top" EnableResize="true" EnableMaximize="true" EnableIFrame="true"
+        <f:Window ID="Window1" runat="server" IsModal="true" Hidden="true" Target="Top" EnableResize="true" EnableMaximize="true" EnableIFrame="true"
             Width="900px" Height="650px" OnClose="Window1_Close">
         </f:Window>
     </form>
@@ -48,6 +51,7 @@
         function onNewClick(event) {
             F('<%= Window1.ClientID %>').show('<%= ResolveUrl("~/admin/menu_new.aspx") %>', '新增菜单');
         }
+
     </script>
 </body>
 </html>
