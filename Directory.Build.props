@@ -1,11 +1,11 @@
 <Project>
   <PropertyGroup>
-    <FineUIReleaseVersion>16.0.0</FineUIReleaseVersion>
+    <FineUIReleaseVersion>16.0.1</FineUIReleaseVersion>
     <Version>$(FineUIReleaseVersion)</Version>
-    <AssemblyVersion>16.0.0.0</AssemblyVersion>
-    <FileVersion>16.0.0.0</FileVersion>
+    <AssemblyVersion>16.0.1.0</AssemblyVersion>
+    <FileVersion>16.0.1.0</FileVersion>
     <InformationalVersion>$(FineUIReleaseVersion)</InformationalVersion>
-    <FineUIPackageVersion Condition="'$(FineUIPackageVersion)' == ''">16.0.0</FineUIPackageVersion>
+    <FineUIPackageVersion Condition="'$(FineUIPackageVersion)' == ''">16.0.1</FineUIPackageVersion>
     <FineUIUseLocalSource Condition="'$(FineUIUseLocalSource)' == ''">false</FineUIUseLocalSource>
   </PropertyGroup>
 
@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(FineUIUseLocalSource)' != 'true'">
-    <Reference Include="FineUI.Pro, Version=16.0.0.0, Culture=neutral, PublicKeyToken=9cbe753c029f291a, processorArchitecture=MSIL">
+    <Reference Include="FineUI.Pro, Version=16.0.1.0, Culture=neutral, PublicKeyToken=9cbe753c029f291a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(FineUIProPackageDll)</HintPath>
     </Reference>
