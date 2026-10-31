@@ -47,3 +47,4 @@ NuGet.Config
 FineUI*.lic*.config
 FineUI.Enterprise.props
 FineUI.Pro.Enterprise.props
+/FineUI.Pro.AppBox/packages.config
