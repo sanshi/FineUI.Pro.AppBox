@@ -18,7 +18,8 @@
                 </f:Toolbar>
             </Toolbars>
             <Items>
-                <f:Form ID="SimpleForm1" ShowBorder="true" ShowBorderShadow="true" ShowHeader="false" BodyPadding="10" AutoScroll="true" LabelWidth="80px" runat="server">
+                <f:Form ID="SimpleForm1" ShowBorder="true" ShowBorderShadow="true" ShowHeader="false" BodyPadding="10" AutoScroll="true" LabelWidth="80px"
+                    runat="server">
                     <Rows>
                         <f:FormRow ID="FormRow1" runat="server">
                             <Items>

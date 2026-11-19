@@ -15,8 +15,7 @@
                         <f:Button ID="btnClose" Icon="SystemClose" runat="server" ClickHandler="onCloseActiveWindowClick" Text="关闭">
                         </f:Button>
                         <f:ToolbarSeparator runat="server"></f:ToolbarSeparator>
-                        <f:Button ID="btnSaveClose" ValidateForms="SimpleForm1" Icon="SystemSaveClose"
-                            OnClick="btnSaveClose_Click" runat="server" Text="保存后关闭">
+                        <f:Button ID="btnSaveClose" ValidateForms="SimpleForm1" Icon="SystemSaveClose" OnClick="btnSaveClose_Click" runat="server" Text="保存后关闭">
                         </f:Button>
                     </Items>
                 </f:Toolbar>
@@ -30,11 +29,9 @@
                         </f:NumberBox>
                         <f:DropDownBox ID="ddbParent" Label="上级部门" AutoShowClearIcon="true" runat="server">
                             <PopPanel>
-                                <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="false" Hidden="true" Width="550" ShowGridHeader="false"
-                                    DataIDField="ID" DataTextField="Name"
-                                    EnableTree="true" TreeColumn="Name" DataParentIDField="ParentID"
-                                    ExpandAllTreeNodes="true" DisableUnselectableRows="true"
-                                    EnableRowLines="false" EnableAlternateRowColor="false" runat="server">
+                                <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="false" Hidden="true" Width="550" ShowGridHeader="false" DataIDField="ID"
+                                    DataTextField="Name" EnableTree="true" TreeColumn="Name" DataParentIDField="ParentID" ExpandAllTreeNodes="true"
+                                    DisableUnselectableRows="true" EnableRowLines="false" EnableAlternateRowColor="false" runat="server">
                                     <Columns>
                                         <f:RenderField ColumnID="Name" DataField="Name" HeaderText="部门名称" ExpandUnusedSpace="true" />
                                     </Columns>

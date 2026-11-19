@@ -15,8 +15,7 @@
                         <f:Button ID="btnClose" Icon="SystemClose" runat="server" ClickHandler="onCloseActiveWindowClick" Text="关闭">
                         </f:Button>
                         <f:ToolbarSeparator runat="server"></f:ToolbarSeparator>
-                        <f:Button ID="btnSaveClose" ValidateForms="SimpleForm1" Icon="SystemSaveClose"
-                            OnClick="btnSaveClose_Click" runat="server" Text="保存后关闭">
+                        <f:Button ID="btnSaveClose" ValidateForms="SimpleForm1" Icon="SystemSaveClose" OnClick="btnSaveClose_Click" runat="server" Text="保存后关闭">
                         </f:Button>
                     </Items>
                 </f:Toolbar>

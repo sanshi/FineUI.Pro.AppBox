@@ -16,8 +16,7 @@
                         <f:Button ID="btnClose" Icon="SystemClose" runat="server" ClickHandler="onCloseActiveWindowClick" Text="关闭">
                         </f:Button>
                         <f:ToolbarSeparator runat="server"></f:ToolbarSeparator>
-                        <f:Button ID="btnSaveClose" ValidateForms="SimpleForm1" Icon="SystemSaveClose"
-                            OnClick="btnSaveClose_Click" runat="server" Text="保存后关闭">
+                        <f:Button ID="btnSaveClose" ValidateForms="SimpleForm1" Icon="SystemSaveClose" OnClick="btnSaveClose_Click" runat="server" Text="保存后关闭">
                         </f:Button>
                     </Items>
                 </f:Toolbar>
@@ -29,11 +28,10 @@
                         </f:Label>
                         <f:Label ID="labUserRealName" Label="中文名" runat="server">
                         </f:Label>
-                        <f:TextBox ID="tbxNewPassword" runat="server" Label="新密码" Required="true" ShowRedStar="true"
-                            TextMode="Password">
+                        <f:TextBox ID="tbxNewPassword" runat="server" Label="新密码" Required="true" ShowRedStar="true" TextMode="Password">
                         </f:TextBox>
-                        <f:TextBox ID="tbxConfirmPassword" runat="server" Label="确认密码" Required="true"
-                            ShowRedStar="true" TextMode="Password" CompareControl="tbxPassword" CompareOperator="Equal">
+                        <f:TextBox ID="tbxConfirmPassword" runat="server" Label="确认密码" Required="true" ShowRedStar="true" TextMode="Password"
+                            CompareControl="tbxPassword" CompareOperator="Equal">
                         </f:TextBox>
                     </Items>
                 </f:SimpleForm>

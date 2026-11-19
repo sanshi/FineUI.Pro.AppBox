@@ -43,8 +43,7 @@
                         </f:FormRow>
                         <f:FormRow runat="server">
                             <Items>
-                                <f:TextBox ID="tbxEmail" runat="server" Label="邮箱" Required="true" ShowRedStar="true"
-                                    RegexPattern="EMAIL">
+                                <f:TextBox ID="tbxEmail" runat="server" Label="邮箱" Required="true" ShowRedStar="true" RegexPattern="EMAIL">
                                 </f:TextBox>
                                 <f:TextBox ID="tbxCompanyEmail" runat="server" Label="公司邮箱" RegexPattern="EMAIL">
                                 </f:TextBox>
@@ -68,7 +67,8 @@
                         </f:FormRow>
                         <f:FormRow runat="server">
                             <Items>
-                                <f:DropDownBox ID="ddbRoles" Label="所属角色" AutoShowClearIcon="true" DataControlID="cblRoles" EnableMultiSelect="true" MultiSelectMode="Tags" runat="server">
+                                <f:DropDownBox ID="ddbRoles" Label="所属角色" AutoShowClearIcon="true" DataControlID="cblRoles" EnableMultiSelect="true"
+                                    MultiSelectMode="Tags" runat="server">
                                     <PopPanel>
                                         <f:SimpleForm BodyPadding="10px" AutoScroll="true" ShowBorder="true" ShowHeader="false" Hidden="true" runat="server">
                                             <Items>
@@ -82,9 +82,11 @@
                         </f:FormRow>
                         <f:FormRow runat="server">
                             <Items>
-                                <f:DropDownBox ID="ddbTitles" Label="拥有职称" AutoShowClearIcon="true" DataControlID="cblTitles" EnableMultiSelect="true" MultiSelectMode="Tags" runat="server">
+                                <f:DropDownBox ID="ddbTitles" Label="拥有职称" AutoShowClearIcon="true" DataControlID="cblTitles" EnableMultiSelect="true"
+                                    MultiSelectMode="Tags" runat="server">
                                     <PopPanel>
-                                        <f:SimpleForm ID="SimpleForm3" BodyPadding="10px" AutoScroll="true" ShowBorder="true" ShowHeader="false" Hidden="true" runat="server">
+                                        <f:SimpleForm ID="SimpleForm3" BodyPadding="10px" AutoScroll="true" ShowBorder="true" ShowHeader="false" Hidden="true"
+                                            runat="server">
                                             <Items>
                                                 <f:CheckBoxList ID="cblTitles" ColumnNumber="3" DataTextField="Name" DataValueField="ID" runat="server">
                                                 </f:CheckBoxList>
@@ -99,10 +101,8 @@
                                 <f:DropDownBox ID="ddbDept" Label="所属部门" AutoShowClearIcon="true" runat="server">
                                     <PopPanel>
                                         <f:Grid ID="gridDept" ShowBorder="true" ShowHeader="false" Hidden="true" Width="550" ShowGridHeader="false"
-                                            DataIDField="ID" DataTextField="Name"
-                                            EnableTree="true" TreeColumn="Name" DataParentIDField="ParentID"
-                                            ExpandAllTreeNodes="true"
-                                            EnableRowLines="false" EnableAlternateRowColor="false" runat="server">
+                                            DataIDField="ID" DataTextField="Name" EnableTree="true" TreeColumn="Name" DataParentIDField="ParentID"
+                                            ExpandAllTreeNodes="true" EnableRowLines="false" EnableAlternateRowColor="false" runat="server">
                                             <Columns>
                                                 <f:RenderField ColumnID="Name" DataField="Name" HeaderText="部门名称" ExpandUnusedSpace="true" />
                                             </Columns>

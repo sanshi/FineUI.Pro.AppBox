@@ -15,8 +15,7 @@
                         <f:Button ID="btnClose" Icon="SystemClose" runat="server" ClickHandler="onCloseActiveWindowClick" Text="关闭">
                         </f:Button>
                         <f:ToolbarSeparator runat="server"></f:ToolbarSeparator>
-                        <f:Button ID="btnSaveClose" ValidateForms="SimpleForm1" Icon="SystemSaveClose"
-                            OnClick="btnSaveClose_Click" runat="server" Text="保存后关闭">
+                        <f:Button ID="btnSaveClose" ValidateForms="SimpleForm1" Icon="SystemSaveClose" OnClick="btnSaveClose_Click" runat="server" Text="保存后关闭">
                         </f:Button>
                     </Items>
                 </f:Toolbar>
@@ -28,11 +27,9 @@
                         </f:TextBox>
                         <f:DropDownBox ID="ddbParent" Label="上级菜单" AutoShowClearIcon="true" runat="server">
                             <PopPanel>
-                                <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="false" Hidden="true" Width="550" ShowGridHeader="false"
-                                    DataIDField="ID" DataTextField="Name"
-                                    EnableTree="true" TreeColumn="Name" DataParentIDField="ParentID"
-                                    ExpandAllTreeNodes="true" DisableUnselectableRows="true"
-                                    EnableRowLines="false" EnableAlternateRowColor="false" runat="server">
+                                <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="false" Hidden="true" Width="550" ShowGridHeader="false" DataIDField="ID"
+                                    DataTextField="Name" EnableTree="true" TreeColumn="Name" DataParentIDField="ParentID" ExpandAllTreeNodes="true"
+                                    DisableUnselectableRows="true" EnableRowLines="false" EnableAlternateRowColor="false" runat="server">
                                     <Columns>
                                         <f:RenderField ColumnID="Name" DataField="Name" HeaderText="菜单名称" ExpandUnusedSpace="true" />
                                     </Columns>
@@ -57,18 +54,19 @@
         </f:Panel>
     </form>
     <script type="text/javascript">
-        F.ready(function () {
+        F.ready(function() {
             var iconList = F('<%= iconList.ClientID %>');
             var tbxIcon = F('<%= tbxIcon.ClientID %>');
 
-            iconList.on('change', function () {
+            iconList.on('change', function() {
                 tbxIcon.setValue(iconList.getValue());
             });
 
-            tbxIcon.on('change', function () {
+            tbxIcon.on('change', function() {
                 iconList.setValue(tbxIcon.getValue());
             });
         });
+
     </script>
 </body>
 </html>
